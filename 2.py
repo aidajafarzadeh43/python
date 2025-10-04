@@ -8,12 +8,22 @@
 #     print ("try again")    
 
 
+
+
+entered_username = input("Enter your username: ")
+entered_password = input("Enter your password: ")
+
+
 # stired_password = "12345"
 # entered_password = input ("enter your password: ")
 # while entered_password != stired_password :
 #   entered_password = input ("try again: ")
 # else :
 #   print ("you loged successfuly")
+
+
+
+
 
 
 # users = { 
@@ -46,6 +56,12 @@
 # else:
 #     print("Your username or password is incorrect.")
 
+
+
+
+
+
+
 # users = {
 #     "aida": "112",
 #     "reza": "678",
@@ -61,6 +77,11 @@
 #         break  # خروج از حلقه در صورت ورود موفق
 #     else:
 #         print("Your username or password is incorrect. Please try again.")
+
+
+
+
+
 
 
 
