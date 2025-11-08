@@ -1,0 +1,43 @@
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html:ro
+      - ./default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - php
+      - db
+    restart: always
+
+  php:
+    build: .
+      #    image: php:8.2-fpm-alpine 
+    container_name: php
+    volumes:
+      - ./src:/var/www/html:ro
+    environment:
+      DB_HOST: db
+      DB_NAME: mydb
+      DB_USER: root
+      DB_PASSWORD: test
+    restart: always
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: aida
+      MYSQL_PASSWORD: 1234
+    volumes:
+      - db_data:/var/lib/mysql 
+
+volumes:
+  db_data:
+    driver: local
